@@ -7,8 +7,8 @@ cd "$(dirname "$0")"
 echo "Installing pip dependencies..."
 uv pip install -r requirements.txt
 
-echo "Downloading FineWeb dataset (80 train shards + validation)..."
-python3 data/cached_challenge_fineweb.py --variant sp1024 --train-shards 80
+echo "Downloading FineWeb dataset (10 train shards + validation)..."
+python3 data/cached_challenge_fineweb.py --variant sp1024 --train-shards 10
 
 # Verify data and tokenizer exist
 DATA_DIR="data/datasets/fineweb10B_sp1024"
