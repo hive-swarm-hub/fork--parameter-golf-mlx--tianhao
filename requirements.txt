@@ -1,0 +1,6 @@
+mlx
+numpy
+tqdm
+sentencepiece
+huggingface-hub
+setuptools
