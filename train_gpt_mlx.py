@@ -53,19 +53,19 @@ class Hyperparameters:
     # Validation always uses the full fineweb_val split.
     val_batch_size: int = int(os.environ.get("VAL_BATCH_SIZE", 32_768))
     train_log_every: int = int(os.environ.get("TRAIN_LOG_EVERY", 200))
-    train_batch_tokens: int = int(os.environ.get("TRAIN_BATCH_TOKENS", 32_768))
+    train_batch_tokens: int = int(os.environ.get("TRAIN_BATCH_TOKENS", 65_536))
     grad_accum_steps: int = int(os.environ.get("GRAD_ACCUM_STEPS", 1))
     train_seq_len: int = int(os.environ.get("TRAIN_SEQ_LEN", os.environ.get("TRAIN_MAX_SEQ_LEN", 1024)))
     # Chunk each logical MLX microbatch into smaller sub-batches to reduce peak
     # memory pressure without changing the effective optimizer batch.
-    mlx_max_microbatch_tokens: int = int(os.environ.get("MLX_MAX_MICROBATCH_TOKENS", 32_768))
+    mlx_max_microbatch_tokens: int = int(os.environ.get("MLX_MAX_MICROBATCH_TOKENS", 65_536))
     warmup_steps: int = int(os.environ.get("WARMUP_STEPS", 5))
     warmdown_iters: int = int(os.environ.get("WARMDOWN_ITERS", 300))
     max_wallclock_seconds: float = float(os.environ.get("MAX_WALLCLOCK_SECONDS", 600.0))
 
     # Model (defaults match the current baseline setup).
     vocab_size: int = int(os.environ.get("VOCAB_SIZE", 1024))
-    num_layers: int = int(os.environ.get("NUM_LAYERS", 6))
+    num_layers: int = int(os.environ.get("NUM_LAYERS", 4))
     model_dim: int = int(os.environ.get("MODEL_DIM", 384))
     num_heads: int = int(os.environ.get("NUM_HEADS", 6))
     num_kv_heads: int = int(os.environ.get("NUM_KV_HEADS", 3))
